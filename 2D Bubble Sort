@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i, j, k,x,y, temp, A[2][2],ch;
+clrscr();
+printf("Enter array elements in A:\n");
+for (i = 0; i <2; i++)
+{
+for (j = 0; j < 2; j++)
+{
+scanf("%d", &A[i][j]);
+}
+}
+printf("\nUnsorted array is : \n");
+for (i = 0; i <2; i++)
+{
+for (j = 0; j < 2; j++)
+{
+printf("%d ", A[i][j]);
+}
+}
+for (i=0; i<4; i++)
+{
+ch=0;
+for (k=0; k<2; k++)
+{
+for (j=0; j<2; j++)
+{
+do {
+temp = A[k][j];
+A[k][j] = A[k][j+1];
+A[k][j+1] = temp;
+ch++;
+} while (A[k][j]>A[k][j+1]);
+}
+}
+if(ch ==0)
+break;
+printf("\nAfter Pass %d value is :\n",i);
+for(x=0; x<2; x++)
+{
+for(y=0; y<2; y++)
+{
+printf("%d ", A[x][y]);
+}
+}
+}
+printf("\nSorted array elements are:\n");
+for (i = 0; i < 2; i++)
+{
+for (j = 0; j < 2; j++)
+{
+printf("%d ", A[i][j]);
+}
+}
+getch();
+}
