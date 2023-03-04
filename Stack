@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<conio.h>
+#define size 100
+int tos=-1;
+int stack[size];
+void push(int);
+void display();
+void peep();
+void pop();
+void main()
+{
+   clrscr();
+   push(10);
+   push(11);
+   push(12);
+   display();
+   peep();
+    pop();
+    display();
+    getch();
+}
+void push(int ele)
+{
+if(tos>=size)
+printf("\nStack is full");
+else
+tos++;
+stack[tos]=ele;
+}
+void display()
+{
+int i;
+if(tos<0)
+printf("\nstack is empty");
+else
+{
+for(i=tos;i>=0;i--)
+printf("\nElement at position %d is %d",i,stack[i]);
+}
+}
+void peep()
+{
+int pos;
+if(tos<0)
+printf("\nstack is empty");
+else
+printf("\nEnter value of pos:");
+scanf("%d",&pos);
+if(pos<0 || pos>tos+1)
+printf("\nout of range");
+else
+printf("\nPeeped element is %d",stack[tos-pos+1]);
+}
+void pop()
+{
+if(tos<0)
+printf("\nStack is empty");
+else
+printf("\nelement deleted");
+tos--;
+}
