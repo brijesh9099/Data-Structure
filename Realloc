@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<conio.h>
+void main ()
+{
+char *str;
+clrscr();
+str = (char *) malloc(15);
+strcpy(str, "Geetanjali");
+printf("String = %s, Address = %u\n", str, str);
+/* Reallocating memory */
+str = (char *) realloc(str, 25);
+strcat(str, "College ");
+printf("String = %s, Address = %u\n", str, str);
+free(str);
+getch();
+}
